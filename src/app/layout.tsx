@@ -6,6 +6,8 @@ import { TRPCReactProvider } from "@/trpc/client";
 
 import "@/styles/globals.css";
 
+import { Toaster } from "@/components/ui/sonner";
+
 const geistSans = Geist({
 	variable: "--font-geist-sans",
 	subsets: ["latin"],
@@ -42,6 +44,7 @@ export default function RootLayout({
 						disableTransitionOnChange
 					>
 						{children}
+						<Toaster richColors position="top-center" />
 					</ThemeProvider>
 				</TRPCReactProvider>
 			</body>
