@@ -1,4 +1,5 @@
 import { FlatCompat } from "@eslint/eslintrc";
+import pluginQuery from "@tanstack/eslint-plugin-query";
 import tseslint from "typescript-eslint";
 
 const compat = new FlatCompat({
@@ -17,6 +18,9 @@ export default tseslint.config(
 			...tseslint.configs.recommendedTypeChecked,
 			...tseslint.configs.stylisticTypeChecked,
 		],
+		plugins: {
+			"@tanstack/query": pluginQuery,
+		},
 		rules: {
 			"@typescript-eslint/array-type": "off",
 			"@typescript-eslint/consistent-type-definitions": "off",
@@ -33,6 +37,12 @@ export default tseslint.config(
 				"error",
 				{ checksVoidReturn: { attributes: false } },
 			],
+			"@typescript-eslint/no-unsafe-member-access": "off",
+			"@typescript-eslint/no-unsafe-call": "off",
+			"@typescript-eslint/no-unsafe-assignment": "off",
+			"@typescript-eslint/no-unsafe-return": "off",
+			"@typescript-eslint/no-unsafe-argument": "off",
+			"@tanstack/query/exhaustive-deps": "error",
 		},
 	},
 	{
