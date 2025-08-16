@@ -36,9 +36,17 @@ const getSpotifyAccessToken = async () => {
 		}),
 	});
 
-	const data = (await response.json()) as SpotifyAccessToken;
+	if (!response.ok) {
+		throw new Error(
+			`Failed to get access token: ${response.statusText} ${response.status} - ${JSON.stringify(
+				await response.json()
+			)}`
+		);
+	}
 
-	return data;
+	const json = await response.json();
+
+	return json as SpotifyAccessToken;
 };
 
 export const spotifyService = {

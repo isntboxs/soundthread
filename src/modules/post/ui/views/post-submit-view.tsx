@@ -144,12 +144,15 @@ export const PostSubmitView = () => {
 																<div className="flex items-center space-x-2">
 																	<Avatar className="size-12 rounded-md">
 																		<AvatarImage
-																			src={trackData?.album.images[2].url}
+																			src={
+																				trackData?.album.images[2].url ??
+																				trackData?.album.images[0].url
+																			}
 																		/>
 																		<AvatarFallback>
 																			{trackData?.artists[0].name
 																				.charAt(0)
-																				.toUpperCase()}
+																				.toUpperCase() ?? ""}
 																		</AvatarFallback>
 																	</Avatar>
 
@@ -198,13 +201,16 @@ export const PostSubmitView = () => {
 																				<div className="flex-shrink-0">
 																					<Avatar className="size-12 rounded-md">
 																						<AvatarImage
-																							src={track.album.images[2].url}
+																							src={
+																								track.album.images[2].url ??
+																								track.album.images[0].url
+																							}
 																						/>
 
 																						<AvatarFallback>
 																							{track.artists[0].name
 																								.charAt(0)
-																								.toUpperCase()}
+																								.toUpperCase() ?? ""}
 																						</AvatarFallback>
 																					</Avatar>
 																				</div>
