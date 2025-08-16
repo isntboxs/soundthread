@@ -9,6 +9,7 @@ export const createPostSchema = z.object({
 		.string()
 		.min(1, "Content is required")
 		.max(1000, "Content must be at most 1000 characters long"),
+	trackId: z.string().min(1, "Track is required"),
 });
 
 export type CreatePostSchema = z.infer<typeof createPostSchema>;

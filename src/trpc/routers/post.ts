@@ -9,6 +9,7 @@ export const postRouter = createTRPCRouter({
 				data: {
 					title: input.title,
 					content: input.content,
+					trackId: input.trackId,
 				},
 			});
 		}),
